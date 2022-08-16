@@ -8,7 +8,6 @@ import "./CrearTurno.css";
 import Time from "../Time";
 
 const CrearTurno = ({ DBT, getTurno }) => {
-  //States 
   const [nombreDueño, setNombreDueño] = useState("");
   const [nombreMascota, setNombreMascota] = useState("");
   const [raza, setRaza] = useState("");
@@ -16,7 +15,6 @@ const CrearTurno = ({ DBT, getTurno }) => {
   const [fecha, setFecha] = useState("");
   const [horario, setHorario] = useState("");
 
-  // Navigate 
   const navigate = useNavigate()
   const handleClick = () => {
 
@@ -26,13 +24,12 @@ const CrearTurno = ({ DBT, getTurno }) => {
   const [horas, setHoras] = useState([]);
   const [horasVeta, setHorasVeta] = useState([]);
   const [horasVetb, setHorasVetb] = useState([]);
-  // Ref
+
   const horarioRef = useRef();
   const vetaRef = useRef();
   const vetbRef = useRef();
   const veterinarioRef = useRef();
 
-  // Arreglo de horarios
   const timePicker = [
     "09:00",
     "10:00",
@@ -44,11 +41,9 @@ const CrearTurno = ({ DBT, getTurno }) => {
     "20:00",
   ];
 
-  // veterinarios
   const veta = "Dr Perez Ramiro";
   const vetb = "Dr Romero Pablo";
 
-  // UseEffect
   useEffect(() => {
     horarioRef.current.disabled = true;
     veterinarioRef.current.disabled = true;
@@ -58,18 +53,15 @@ const CrearTurno = ({ DBT, getTurno }) => {
     try {
       const res = await fetch(DBT);
       const resultado = await res.json();
-      // Guardamos la db en un state
       setTurnos(resultado);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
   function handleDateChange(e) {
-    // Realizamos filtrado de fecha
     const busquedaFechas = turnos.filter((fechas) => fechas.fecha === e.target.value
     );
-    // Nuevo filtrado de veterianrios y horas
     const buscarVeterinario = busquedaFechas.filter((doc) => doc.veterinario === veta);
     const buscarVeterinario1 = buscarVeterinario.map((horas) => horas.horario);
     setHorasVeta(buscarVeterinario1);
@@ -87,7 +79,6 @@ const CrearTurno = ({ DBT, getTurno }) => {
       vetbRef.current.disabled = false;
     }
 
-    //  Habilitar el input de horas
     veterinarioRef.current.disabled = false;
   }
 
@@ -96,11 +87,9 @@ const CrearTurno = ({ DBT, getTurno }) => {
     if (e.target.value === veta) {
 
       const vet1filtrado = timePicker.filter((hora) => !horasVeta.includes(hora))
-      console.log('filtrado', vet1filtrado)
       setHoras(vet1filtrado);
     } else if (e.target.value === vetb) {
       const vet2filtrado = timePicker.filter((hora) => !horasVetb.includes(hora))
-      console.log(vet2filtrado)
       setHoras(vet2filtrado);
     }
 
@@ -108,10 +97,8 @@ const CrearTurno = ({ DBT, getTurno }) => {
 
   }
 
-  // Funcion para guardar los datos o crear el producto 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validar los campos
     if (
       !validateNombreDueño(nombreDueño) ||
       !validateNombreMascota(nombreMascota) ||
@@ -123,7 +110,6 @@ const CrearTurno = ({ DBT, getTurno }) => {
       Swal.fire("Ops!", " Datos incorrectos .", "error");
       return;
     }
-    // Enviar los datos para guardarlos 
     const newTurno = {
       nombreDueño,
       nombreMascota,
@@ -155,7 +141,7 @@ const CrearTurno = ({ DBT, getTurno }) => {
             navigate("/turno/tabla");
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
     });
@@ -166,7 +152,6 @@ const CrearTurno = ({ DBT, getTurno }) => {
       <Container className="py-5 DatosTurno">
         <h1>Elegir Turno para una Consulta </h1>
         <hr />
-        {/* Formulario de  Turnos */}
           <Form className="p-3 m-3" onSubmit={handleSubmit}>
             <Row>
               <Col md={6}>

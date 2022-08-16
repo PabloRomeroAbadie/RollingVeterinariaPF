@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import ServicioCard from "./ServicioCard";
 import "../home.css"
-const Servicio = () => {
-    //state 
+const Servicio = () => { 
     const [servicios, setServicios] = useState(null);
 
     const DBSERVICE = process.env.REACT_APP_API_SERVICIOS;
@@ -17,7 +16,7 @@ const Servicio = () => {
           const serviciosApi = await res.json()
           setServicios(serviciosApi)
       } catch (error) {
-          console.log(error)
+          cconsole.error(error);
       }
   }
   

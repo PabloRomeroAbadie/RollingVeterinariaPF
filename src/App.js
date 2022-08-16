@@ -45,7 +45,7 @@ function App() {
       const turnoApi = await res.json();
       setTurnos(turnoApi);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -55,7 +55,7 @@ function App() {
       const usuarioApi = await res.json();
       setUsuario(usuarioApi);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -65,7 +65,7 @@ function App() {
       const consultaApi = await res.json();
       setConsulta(consultaApi);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   

@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import './CrearUsuario.css';
 
 const CrearUsuario = ({ DBU, getUsuario }) => {
-    //States 
     const [email, setEmail] = useState("");
     const [nombreDueño, setNombreDueño] = useState("");
     const [nombreMascota, setNombreMascota] = useState("");
@@ -15,15 +14,12 @@ const CrearUsuario = ({ DBU, getUsuario }) => {
     const [raza , setRaza] = useState("");
     const [especie, setEspecie] = useState("");
 
-    // Navigate 
     const navigate = useNavigate()
     const handleClick = () => {
     }
 
-    // Funcion para guardar los datos o crear el producto 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // validar los campos
         if (
             !validateEmail(email) ||
             !validateNombreDueño(nombreDueño) ||
@@ -35,7 +31,6 @@ const CrearUsuario = ({ DBU, getUsuario }) => {
             Swal.fire("Ops!", " Datos incorrectos .", "error");
             return;
         }
-        // Enviar los datos para guardarlos 
         const newUsuario = {
             email,
             nombreDueño,
@@ -66,7 +61,7 @@ const CrearUsuario = ({ DBU, getUsuario }) => {
                         navigate("/usuario/tabla/");
                     }
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                 }
             }
         });

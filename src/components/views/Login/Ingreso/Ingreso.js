@@ -14,7 +14,6 @@ const Ingreso = () => {
   const gmail = process.env.REACT_APP_GMAIL;
   const password = process.env.REACT_APP_CLAVE;
 
-
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [type, setType] = useState("password");
@@ -46,7 +45,6 @@ const Ingreso = () => {
           return;
       }
         session = true;
-        console.log(email, gmail, contraseña, password);
         if (email === gmail && contraseña === password) {
             sessionStorage.setItem("stateSession", JSON.stringify(session));
             Swal.fire(

@@ -25,7 +25,7 @@ const EditarUsuario = ({ DBU, getUsuario }) => {
             const usuarioApi = await res.json();
             setUsuario(usuarioApi);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }, []);
 
@@ -73,7 +73,7 @@ const EditarUsuario = ({ DBU, getUsuario }) => {
                     }
 
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                 }
             }
         });

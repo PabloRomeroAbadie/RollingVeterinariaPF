@@ -19,7 +19,7 @@ const Planes = () => {
       const planesApi = await res.json();
       setPlanes(planesApi);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

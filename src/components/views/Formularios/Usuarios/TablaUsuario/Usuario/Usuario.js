@@ -31,7 +31,7 @@ const Usuario = ({ usuario, DBU, getUsuario }) => {
           }
 
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
 

@@ -23,7 +23,7 @@ const Consulta = ({ consulta, DBC, getConsulta }) => {
                 getConsulta();
               }
             } catch (error) {
-              console.log(error);
+              console.error(error);
             }
           }
         });

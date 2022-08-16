@@ -8,7 +8,6 @@ import "../CrearTurno/CrearTurno.css";
 import Time from "../Time";
 
 const EditarTurno = ({ DBT, getTurno }) => {
-    // state
     const [turno, setTurno] = useState({});
     const [turnos, setTurnos] = useState([]);
     const [horas, setHoras] = useState([]);
@@ -24,35 +23,29 @@ const EditarTurno = ({ DBT, getTurno }) => {
         "20:00",
     ];
 
-    //Parametros
     const { id } = useParams();
 
-    // Ref
     const nombreDueñoRef = useRef("");
     const nombreMascotaRef = useRef("");
     const veterinarioRef = useRef("");
-    const fechaRef = useRef("");// fecha 
-    const horarioRef = useRef(""); // horario
+    const fechaRef = useRef(""); 
+    const horarioRef = useRef(""); 
     const vetaRef = useRef("");
     const vetbRef = useRef("");
 
-    // Navigate
     const navigate = useNavigate()
 
-    // veterinarios
-    const veta = "Dr Ramiro Perez"; // aca va lo que ponga como value
+    const veta = "Dr Ramiro Perez"; 
     const vetb = "Dr Romero Pablo";
 
-    // UseEffect
     useEffect(async () => {
         try {
             const res = await fetch(`${DBT}/${id}`);
             const turnoApi = await res.json();
             setTurno(turnoApi);
             searchAtDb()
-
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }, []);
 
@@ -61,13 +54,9 @@ const EditarTurno = ({ DBT, getTurno }) => {
             const res = await fetch(DBT);
             const resultado = await res.json()
             setTurnos(resultado);
-            console.log(turnos)
             const busquedaFechas = turnos.filter(
                 (fechas) => fechas.fecha === fechaRef.current.value);
-            console.log(fechaRef.current.value)
-            console.log(busquedaFechas)
             const buscarveterio = busquedaFechas.map((turnos) => turnos.veterinario);
-            console.log(buscarveterio)
             const filtradovet1 = buscarveterio.filter((buscada) => {
                 return buscada === veta;
             });
@@ -86,7 +75,7 @@ const EditarTurno = ({ DBT, getTurno }) => {
             );
             setHoras(filtradoHoras);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     })
 
@@ -94,7 +83,6 @@ const EditarTurno = ({ DBT, getTurno }) => {
         const busquedaFechas = turnos.filter(
             (fechas) => fechas.fecha === e.target.value
         );
-        // Buscamos por veterinario en esa fecha
         const buscarveterio = busquedaFechas.map((turno) => turno.veterinario);
         const filtradovet1 = buscarveterio.filter((buscada) => {
             return buscada === veta;
@@ -157,7 +145,7 @@ const EditarTurno = ({ DBT, getTurno }) => {
                         navigate("/turno/tabla");
                     }
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                 }
             }
         });
@@ -168,7 +156,6 @@ const EditarTurno = ({ DBT, getTurno }) => {
             <Container className="py-5">
                 <h1>Editar Turno</h1>
                 <hr />
-                {/* formulario para editar  Turnos */}
                 <Row>
                     <div className="d-flex justify-content-center">
                     <Col sm={12} md={8}>

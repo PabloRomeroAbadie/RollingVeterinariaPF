@@ -14,7 +14,6 @@ const SobreNosotros = () => {
             <hr />
             <Pablo/>
             </div>
-  
         </div>
 
     );

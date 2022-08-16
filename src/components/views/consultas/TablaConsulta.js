@@ -33,7 +33,6 @@ const TablaConsulta = ({ consulta, DBC, getConsulta }) => {
                             </Table>
                             :
                         <div className="no-products-found d-flex align-items-center justify-content-center">
-                            {/* No turno found message */}
                             <h1>🐾🐕  No hay Consultas realizadas 🐈🐾 </h1>
                         </div>}
                         <div className="text-end">

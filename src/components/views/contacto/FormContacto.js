@@ -6,24 +6,20 @@ import { validateNombreDueño, validateEmail, validateConsulta } from "../../hel
 import Swal from 'sweetalert2';
 
 const FormContacto = () => {
-        //states
         const [nombreApellido, setNombreApellido] = useState("");
         const [email, setEmail] = useState("");
         const [consulta, setConsulta] = useState("");
     
         const URL = process.env.REACT_APP_API_CONSULTA;
     
-        //navigate
         const navigate = useNavigate();
         const handleClick = () => {
         }
     
-        //guardar los datos y enviar mail
         const handleSubmit = (e) => {
             e.preventDefault();
             emailjs.sendForm('service_sktzuej', 'template_wf5oikv', e.target, 'user_DfiFfXrlbOM3tOLWjQzRU')
             .then((result) => {
-                console.log(result.text);
             }, (error) => {
                 console.log(error.text);
             });
@@ -34,7 +30,6 @@ const FormContacto = () => {
                 Swal.fire("Ops!", " Datos incorrectos .", "error");
                 return;
             }
-            // Enviar los datos para guardarlos 
             const newConsulta = {
                 nombreApellido,
                 email,
@@ -60,7 +55,7 @@ const FormContacto = () => {
                             navigate("/");
                         }
                     } catch (error) {
-                        console.log(error);
+                        console.error(error);
                     }
                 }
             });

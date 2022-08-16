@@ -17,7 +17,7 @@ const Profesionales = () => {
         const serviciosApi = await res.json()
         setVeterinarios(serviciosApi)
     } catch (error) {
-        console.log(error)
+      console.error(error);
     }
 }
 

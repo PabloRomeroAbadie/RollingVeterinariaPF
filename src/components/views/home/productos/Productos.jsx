@@ -17,7 +17,7 @@ const Productos = () => {
           const productosApi = await res.json()
           setProductos(productosApi)
       } catch (error) {
-          console.log(error)
+        console.error(error);
       }
   }
   

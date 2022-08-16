@@ -16,7 +16,7 @@ const Clima = () => {
         const climaTucu = climaApi.filter(el => el.name === "San Miguel de Tucumán")
         setClima(climaTucu[0].weather.temp)
     } catch (error) {
-        console.log(error)
+        console.error(error);
     }
 }
     return (

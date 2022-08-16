@@ -7,10 +7,7 @@ import usuarios from '../../Assets/ImgLogin/gato1.jpg';
 import turnos from '../../Assets/ImgLogin/perro1.jpg';
 import consultas from '../../Assets/ImgLogin/conejo1.jpg';
 
-
-
 const PagAdmin = () => {
-
     const redirect = useNavigate();
     const session = JSON.parse(sessionStorage.getItem("stateSession")) || false;
 

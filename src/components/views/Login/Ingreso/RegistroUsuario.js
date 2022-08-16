@@ -7,16 +7,13 @@ import "../../../../Styles/GeneralStyles.css";
 import { validateContraseña, validateEmail, validateNombreDueño } from '../../../helpers/ValidateFields';
 
 const RegistroUsuario = ( { DBR }) => {
-    //States
     const [nombreApellido, setNombreApellido] = useState("");
     const [email, setEmail] = useState("");
     const [contraseña, setContraseña] = useState("");
 
-    //Navigate
     const navigate = useNavigate();
 
-    //Funcion para Guardar Registro
-    const handleSubmit = (e) => {
+        const handleSubmit = (e) => {
         e.preventDefault();
         if (
             !validateNombreDueño(nombreApellido) ||
@@ -28,7 +25,6 @@ const RegistroUsuario = ( { DBR }) => {
                 return;
             }
 
-            // Enviar los datos para guardarlos 
         const newUsuarioRegistrado = {
             nombreApellido,
             email,
@@ -55,7 +51,7 @@ const RegistroUsuario = ( { DBR }) => {
                         navigate("/login");
                     }
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                 }
             }
         });

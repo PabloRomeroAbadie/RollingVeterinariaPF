@@ -5,7 +5,6 @@ import "./home.css";
 const Publicidad = () => {
   return (
     <div className="margin-components">
-      
         <h2 className="text-center display-4 fw-bold">
           Alimentacion de alta calidad
         </h2>

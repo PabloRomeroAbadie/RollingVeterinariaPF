@@ -13,7 +13,6 @@ const TablaUsuario = ({usuario, DBU, getUsuario}) => {
           <Link to="/usuario/crear" className="btn-reservar text-decoration-none text-center">Crear Paciente</Link>
         </div>
         <hr />
-        {/* Tabla de turnos */}
         {usuario.length !== 0 ?
           <Table bordered hover responsive
             className="align-middle mt-3">
@@ -38,7 +37,6 @@ const TablaUsuario = ({usuario, DBU, getUsuario}) => {
           </Table>
           :
           <div className="no-products-found d-flex align-items-center justify-content-center">
-            {/* No usuarios  creados */}
             <h1>🐾🐕  No hay Pacientes Registrados 🐈🐾</h1>
           </div> 
         }

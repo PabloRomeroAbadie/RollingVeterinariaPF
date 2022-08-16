@@ -25,7 +25,7 @@ const Turno = ({ turno, DBT, getTurno }) => {
             getTurno();
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
 
