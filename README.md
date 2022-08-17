@@ -3,8 +3,6 @@
     *Veterinaria Rolling es una pagina web realizada con React bootstrap, donde en ella se podra administrar la carga, gestion de pacientes  y reserva de turnos.
     Ademas en su pagina principal cuenta con se exhiben distintas secciones con informacion de la veterinaria, servicios y productos que ofrece.
 
-## Demo✨
-
 ## Instalacion dependencias:
     
    `npm i`
@@ -19,7 +17,7 @@
     - Sweet Alert 
     - Emailjs
 
-##[Visitar Sitio Web]()
+##[Visitar Sitio Web](https://vetrolling.netlify.app/)
 
 **Usuario administrador:** vetRolling22@gmail.com
 
